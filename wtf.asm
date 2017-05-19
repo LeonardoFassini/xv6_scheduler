@@ -17,7 +17,7 @@ int main(void){
    b:	89 e5                	mov    %esp,%ebp
    d:	51                   	push   %ecx
    e:	83 ec 0c             	sub    $0xc,%esp
-   printf(1, "working...!?");
+   printf(1, "working!\n");
   11:	68 e0 06 00 00       	push   $0x6e0
   16:	6a 01                	push   $0x1
   18:	e8 a3 03 00 00       	call   3c0 <printf>
@@ -1039,7 +1039,7 @@ putc(int fd, char c)
  4d8:	89 45 d0             	mov    %eax,-0x30(%ebp)
         if(s == 0)
           s = "(null)";
- 4db:	b8 ed 06 00 00       	mov    $0x6ed,%eax
+ 4db:	b8 ea 06 00 00       	mov    $0x6ea,%eax
  4e0:	85 db                	test   %ebx,%ebx
  4e2:	0f 44 d8             	cmove  %eax,%ebx
         while(*s != 0){

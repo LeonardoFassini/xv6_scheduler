@@ -3,7 +3,7 @@
 
 
 int main(void){
-   printf(1, "working...!?\n");
+   printf(1, "working!\n");
 
 
    exit();

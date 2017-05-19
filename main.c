@@ -55,6 +55,7 @@ static void
 mpmain(void)
 {
   cprintf("cpu%d: starting\n", cpunum());
+  cprintf("hello\n");
   idtinit();       // load idt register
   xchg(&cpu->started, 1); // tell startothers() we're up
   scheduler();     // start running processes
@@ -90,7 +91,6 @@ startothers(void)
     *(int**)(code-12) = (void *) V2P(entrypgdir);
 
     lapicstartap(c->apicid, V2P(code));
-
     // wait for cpu to finish mpmain()
     while(c->started == 0)
       ;
