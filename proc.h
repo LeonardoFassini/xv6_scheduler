@@ -1,6 +1,7 @@
 // Per-CPU state
 
 #define DEFAULT_T 1;
+
 struct cpu {
   uchar apicid;                // Local APIC ID
   struct context *scheduler;   // swtch() here to enter scheduler
@@ -66,6 +67,7 @@ struct proc {
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
   int tickets;                 // Tickets;
+  int used;          // Hom many times the scheduler used this process
 };
 
 // Process memory is laid out contiguously, low addresses first:
