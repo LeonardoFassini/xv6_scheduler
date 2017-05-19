@@ -8,9 +8,11 @@
 #include "proc.h"
 
 int
-sys_fork(void)
+sys_fork()
 {
-  return fork();
+   int tickets;
+   argint(0, &tickets);
+   return fork(tickets);
 }
 
 int

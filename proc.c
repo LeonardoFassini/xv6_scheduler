@@ -158,7 +158,7 @@ int findtickets(){
 // Sets up stack to return as if from system call.
 // Caller must set state of returned proc to RUNNABLE.
 int
-fork(void)
+fork(int tickets)
 {
   int i, pid;
   struct proc *np;
@@ -194,7 +194,12 @@ fork(void)
   acquire(&ptable.lock);
 
   np->state = RUNNABLE;
-  np->tickets = DEFAULT_T;
+  if(tickets == 0){
+     np->tickets = DEFAULT_T;
+  }
+  else{
+     np->tickets = tickets;
+  }
   release(&ptable.lock);
 
   return pid;
